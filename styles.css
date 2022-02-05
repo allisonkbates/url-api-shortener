@@ -192,6 +192,7 @@ header {
 }
 
 .error-msg {
+  display: block;
   color: red;
 }
 
@@ -226,6 +227,18 @@ input {
   font-size: var(--fs-400);
   padding: var(--xs-half);
   border-radius: 4px;
+  width: 100%;
+}
+
+label {
+  display: none;
+}
+
+.input__container {
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn--inline-form {
@@ -237,15 +250,27 @@ input {
 /* Results Styling */
 
 .results-container {
-  background-color: var(--light-gray);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0em;
+  border-radius: 4px;
+  text-align: left;
 }
 
 .result-container {
-  background: white;
+  padding: 1em;
+  background-color: white;
+  margin-bottom: 1em;
+}
+
+.old-result-container {
+  border-bottom: 1px solid var(--light-gray);
 }
 
 .result__old-url {
-
+  color: var(--very-dark-blue);
+  margin-top: 0;
 }
 
 .result__new-url {
@@ -254,6 +279,22 @@ input {
 
 .result__btn {
   border-radius: 4px;
+  align-self: center;
+  width: 100%;
+  font-size: var(--fs-300);
+  margin: 0;
+}
+
+.result__btn:hover {
+  background-color: var(--dark-violet);
+}
+
+.result__btn:before {
+  content: "Copy"
+}
+
+.result__btn:hover:before {
+  content: "Copied!";
 }
 
 /* Cards */
@@ -328,6 +369,10 @@ footer li:hover {
     padding: 2em 8em;
   }
 
+  .section--form {
+    flex-direction: column;
+  }
+
   .content__left {
     display: flex;
     flex-direction: column;
@@ -374,7 +419,7 @@ footer li:hover {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin: 4em 0em;
+    margin: 4em 0em 2em;
     padding: 2em;
     background: url("images/bg-shorten-desktop.svg") var(--dark-violet) top right no-repeat;
   }
@@ -386,7 +431,41 @@ footer li:hover {
   input {
     padding: .75em;
     margin-right: .5em;
+  }
+
+  .input__container {
     flex-grow: 1;
+  }
+  .result-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .result__old-url {
+    margin: 1em;
+  }
+
+  .result__new-url {
+    margin-right: 1em;
+  }
+
+  .old-result-container, .new-result-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .old-result-container {
+    border: none;
+  }
+
+  .result__btn {
+    min-width: 150px;
+  }
+
+  hr {
+    display: none;
   }
 
   /* Cards */

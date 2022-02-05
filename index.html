@@ -52,13 +52,16 @@
     </div>
     <img src="images/illustration-working.svg" class="hero-image--desktop" alt="illustration-working">
   </section>
-  <section>
+  <section class="bg-gray section--form">
     <form id="form" novalidate>
-      <input type="email" name="shorten-link" placeholder="Shorten a link here..." id="input-url" required />
-      <p class="error-msg" id="error-msg"></p>
+      <div class="input__container">
+        <label for="url">URL</label>
+        <input type="url" name="url" placeholder="Shorten a link here..." id="input-url" required />
+        <p class="hide-on-load" id="error-msg"></p>
+      </div>
       <button type="submit" class="btn btn--inline-form" id="shortcode-cta">Shorten It!</button>
     </form>
-    <div id="results-container">
+    <div id="results-container" class="results-container">
       <!-- This is where the shortened urls will build -->
     </div>
   </section>

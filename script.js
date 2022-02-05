@@ -3,6 +3,7 @@ let shortcodeCta = document.getElementById('shortcode-cta');
 let inputUrl = document.getElementById('input-url');
 let errorMsg = document.getElementById('error-msg');
 let resultsContainer = document.getElementById('results-container');
+let copyButton;
 
 function getShortCode(e) {
   e.preventDefault(); /* prevents the form from reloading the page */
@@ -25,51 +26,76 @@ function getShortCode(e) {
     });
 
   form.reset(); /* resets the form */
+}
+
+function showError(data) {
+
+  if (data.error_code === 1) {
+    errorMsg.textContent = "Please add a link."
+  } else if (data.error_code === 2) {
+    errorMsg.textContent = "Please enter a valid url.";
+  } else {
+    errorMsg.textContent = "Please try again.";
   }
+  errorMsg.classList.add('error-msg')
+  inputUrl.classList.add('error');
+}
 
-  function showError(data) {
-    if (data.error_code === 1) {
-      errorMsg.textContent = "Please add a link."
-    } else if (data.error_code === 2) {
-      errorMsg.textContent = "Please enter a valid url.";
-    } else {
-      errorMsg.textContent = "Please try again.";
-    }
-    inputUrl.classList.add('error');
-  }
+function showData(data) {
 
-  function showData(data) {
-    /* Remove error formatting */
-    inputUrl.classList.remove('error');
-    errorMsg.textContent = "";
+  /* Remove error formatting */
+  errorMsg.classList.remove('error-msg');
+  inputUrl.classList.remove('error');
+  errorMsg.textContent = "";
 
-    /* Show Data */
-    
-    /* Creates div container */
-    let newResult = document.createElement('div');
-    newResult.classList.add('result-container');
-    /* Show Original Url */ 
-    let oldUrlDisplay = document.createElement('p');
-    oldUrlDisplay.classList.add('result__old-url');
-    oldUrlDisplay.textContent = data.result.original_link;
-    newResult.append(oldUrlDisplay);
-    /* Show New Url */
-    let newUrlDisplay = document.createElement('p');
-    newUrlDisplay.classList.add('result__new-url');
-    newUrlDisplay.textContent = data.result.full_short_link;
-    newResult.append(newUrlDisplay);
+  /* Build Result Container */
 
-    let copyButton = document.createElement('button');
-    copyButton.classList.add('result__btn', 'btn');
-    copyButton.textContent = "Copy";
-    newResult.append(copyButton);
-    
-    /* Add Div Container to HTML */
-    resultsContainer.append(newResult);
-  }
+  /* Creates Div Container */
+  let resultContainer = document.createElement('div');
+  resultContainer.classList.add('result-container');
 
-/* Pseudo Code */
-/* Function to show whether url is valid that should be done on change*/
-/* On submit, check again to make sure url is valid*/
+  let oldResult = document.createElement('div');
+  oldResult.classList.add('old-result-container');
+  
+  /* Show Original Url */ 
+  let oldUrlDisplay = document.createElement('p');
+  oldUrlDisplay.classList.add('result__old-url');
+  oldUrlDisplay.textContent = data.result.original_link;
+  oldResult.append(oldUrlDisplay);
+
+  let newResult = document.createElement('div');
+  newResult.classList.add('new-result-container');
+  
+  /* Show New Url */
+  let newUrlDisplay = document.createElement('p');
+  newUrlDisplay.classList.add('result__new-url');
+  newUrlDisplay.textContent = data.result.full_short_link;
+  newResult.append(newUrlDisplay);
+
+  /* Show Copy Button */
+  copyButton = document.createElement('button');
+  copyButton.classList.add('btn', 'result__btn');
+  copyButton.id = `copy-button-${data.result.code}`;
+  copyButton.dataset.code = data.result.full_short_link;
+  newResult.append(copyButton);
+  
+  /* Add Div Container to HTML */
+  resultsContainer.append(resultContainer);
+  resultContainer.append(oldResult);
+  resultContainer.append(newResult);
+  copyButton.addEventListener('click', copyUrl);
+}
+
+function copyUrl(e) {
+  
+  /* get the text in a variable*/
+  let copyText= copyButton.dataset.code; 
+  
+  /* use the write text method with Clipboard API */
+  navigator.clipboard.writeText(copyText).then(function( ){
+    // copyButton.classList.add('copied');
+    console.log('copied');
+  });
+}
 
 form.addEventListener('submit', getShortCode);
