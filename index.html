@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav__left">
+    <img src="images/logo.svg" class="header__logo" alt="Shortly Logo">
+      <ul class="ul__left">
+        <li><a>Features</a></li>
+        <li><a>Pricing</a></li>
+        <li><a>Resources</a></li>
+      </ul>
+    </nav>
+    <nav class="nav__right">
+      <ul>
+        <li><a>Login</a></li>
+        <li><a class="link-btn">Signup</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger-icon">
+        <div class="hamburger__line"></div>
+        <div class="hamburger__line"></div>
+        <div class="hamburger__line"></div>
+    </button>
+    <div class="hamburger-menu hide-on-load">
+      <ul>
+        <li><a>Features</a></li>
+        <li><a>Pricing</a></li>
+        <li><a>Resources</a></li>
+      </ul>
+      <hr>
+      <ul>
+        <li><a>Login</a></li>
+        <li><a>Signup</a></li>
+      </ul>
+    </div>
+  </header>
+  <section class="hero">
+    <img src="images/illustration-working.svg" class="hero-image--mobile" alt="illustration-working">
+  </section>
+  <section class="section--desktop">
+    <div class="content__left">
+      <h1>More than just shorter links</h1>
+      <p class="fs-400">Build your brand’s recognition and get detailed insights on how your links are performing.</p>
+      <button type="button" class="btn">Get Started</button>
+    </div>
+    <img src="images/illustration-working.svg" class="hero-image--desktop" alt="illustration-working">
+  </section>
+  <section>
+    <form id="form" novalidate>
+      <input type="email" name="shorten-link" placeholder="Shorten a link here..." id="input-url" required />
+      <p class="error-msg" id="error-msg"></p>
+      <button type="submit" class="btn btn--inline-form" id="shortcode-cta">Shorten It!</button>
+    </form>
+    <div id="results-container">
+      <!-- This is where the shortened urls will build -->
+    </div>
+  </section>
+  <section class="bg-gray flex-column">
+    <div class="content-center">
+    <h2>Advanced Statistics</h2>
+    <p class="text-align-center">Track how your links are performing across the web with our advanced statistics dashboard.</p>
+    </div>
+    <div class="cards-desktop">
+      <div class="card">
+        <img src="images/icon-brand-recognition.svg" class="card__icon" alt="brand-recognition-icon">
+        <h3>Brand Recognition</h3>
+        <p>Boost your brand recognition with each click. Generic links don’t mean a thing. Branded links help instil confidence in your content.</p>
+      </div>
+      <div class="card-divider"></div>
+      <div class="card">
+        <img src="images/icon-detailed-records.svg" class="card__icon" alt="detailed-records-icon">
+        <h3>Detailed Records</h3>
+        <p>Gain insights into who is clicking your links. Knowing when and where people engage with your content helps inform better decisions.</p>
+      </div>
+      <div class="card-divider"></div>
+      <div class="card">
+        <img src="images/icon-fully-customizable.svg" class="card__icon" alt="fully-customizable-icon">
+        <h3>Fully Customizable</h3>
+        <p>Improve brand awareness and content discoverability through customizable links, supercharging audience engagement.</p>
+      </div>
+    </div>
+  </section>
+  <section class="bg-boost content-center">
+    <h2 class="color-white">Boost your links today</h2>
+    <button type="button" class="btn">Get Started</button>
+  </section>
+  <footer>
+    <img src="images/logo-light.svg" class="footer__logo" alt="Shortly Logo">
+    <div>
+      <p>Features</p>
+      <ul>
+        <li><a>Link Shortening</a></li>
+        <li><a>Branded Links</a></li>
+        <li><a>Analytics</a></li>
+      </ul>
+    </div>
+    <div>
+      <p>Resources</p>
+      <ul>
+        <li><a>Blog</li>
+        <li><a>Developers</a></li>
+        <li><a>Support</a></li>
+      </ul>
+    </div>
+    <div>
+      <p>Company</p>
+      <ul>
+        <li><a>About</a></li>
+        <li><a>Our Team</a></li>
+        <li><a>Careers</a></li>
+        <li><a>Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer__social-icons">
+      <img src="images/icon-facebook.svg" alt="icon-facebook">
+      <img src="images/icon-twitter.svg" alt="icon-twitter">
+      <img src="images/icon-pinterest.svg" alt="icon-pinterest">
+      <img src="images/icon-instagram.svg" alt="icon-instagram">
+    </div>
+  </footer>
+</body>
+<script src="script.js"></script>
+</html>

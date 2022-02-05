@@ -1,0 +1,445 @@
+/* Font Family Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+
+/* Custom Properties */
+:root {
+  /* Colors */
+  --cyan: hsl(180, 66%, 49%);
+  --light-cyan: #9DE1E0;
+  --dark-violet: hsl(257, 27%, 26%);
+  --red: hsl(0, 87%, 67%);
+  --light-gray: #F0F1F6;
+  --gray: hsl(0, 0%, 75%);
+  --grayish-violet: hsl(257, 7%, 63%);
+  --very-dark-blue: hsl(255, 11%, 22%);
+  --very-dark-violet: hsl(260, 8%, 14%);
+  
+  /* Fonts Families */
+  --ff-normal: 'Poppins', sans-serif;
+  
+  /* Font Weights */
+  --fw-medium: 500;
+  --fw-bold: 700;
+  
+  /* Font Sizes  - pulled from Scrimba, not sure I like this as my source of truth because I might need a different ranges */ 
+	--fs-900: 9.375rem;
+	--fs-800: 6.25rem;
+	--fs-700: 3.5rem;
+	--fs-600: 2rem; /* 32px */
+	--fs-500: 1.5rem; /* 24px */
+	--fs-400: 1.125rem; /* 18px */
+	--fs-300: 1rem; /* 16px */
+	--fs-200: 0.875rem; /* 14px */
+
+  /* Spacing System */
+  --xs-half: .5em;
+  --sm-1: 1em;
+  --md-2: 2em;
+  --lg-4: 4em;
+}
+
+/* Resets */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+	margin: 0;
+}
+
+/* Utility Classes */
+.fs-400 {
+  font-size: var(--fs-400);
+}
+
+.bg-gray {
+  background-color: var(--light-gray);
+}
+
+.color-white {
+  color: white;
+}
+
+.hide-on-load {
+  display: none;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+/* General Styles */
+body {
+  font-size: var(--fs-300);
+  font-family: var(--ff-normal);
+  font-weight: var(--fw-medium);
+  text-align: center;
+}
+
+button, input {
+  font-size: var(--fs-400);
+  font-family: var(--ff-normal);
+  font-weight: var(--fw-medium);
+}
+
+section {
+  padding: 4em 1.5em;
+}
+
+h1, h2, h3 {
+  color: var(--very-dark-blue);
+  margin: var(--xs-half) 0em;
+}
+
+h1 {
+  font-size: var(--fs-600);
+  line-height: 1.25;
+}
+
+p {
+  color: var(--grayish-violet);
+  margin: var(--xs-half) 0em;
+  max-width: 500px;
+}
+
+a {
+  cursor: pointer;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  margin: .5em;
+}
+
+.btn {
+  color: white;
+  background-color: var(--cyan);
+  border: none;
+  padding: .75em var(--md-2); /* add to spacing variables? */
+  margin: var(--sm-1) 0;
+  border-radius: 30px;
+  font-weight: var(--fw-bold);
+  cursor: pointer;
+}
+
+.link-btn {
+  color: white;
+  background-color: var(--cyan);
+  border: none;
+  padding: .5em 1.5em;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.btn:hover, .link-btn:hover {
+  background-color: var(--light-cyan);
+}
+
+/* Header Styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--md-2);
+}
+
+.ul__left, .nav__right {
+  display: none;
+}
+
+.ul__left li:hover, .nav__right li:hover {
+  color: var(--very-dark-blue);
+}
+
+.header__logo {
+  margin-right: .5em;
+}
+
+.hamburger-icon {
+  background-color: transparent;
+  border: none;
+}
+
+.hamburger__line {
+  width: 24px;
+  height: 2px;
+  background-color: var(--grayish-violet);
+  margin: var(--xs-half) 0em;
+}
+
+.error {
+  border: 4px solid red;
+}
+
+.error-msg {
+  color: red;
+}
+
+/* Hero Section */
+.hero {
+  margin: var(--md-2) 0em;
+  padding: 0;
+}
+
+.hero-image--mobile {
+  height: 325px;
+  margin: var(--sm-1) 0em;
+  width: 100%;
+  object-fit: cover;
+}
+
+.hero-image--desktop {
+  display: none;
+}
+
+/* Form Styles */
+form {
+  background: url("images/bg-shorten-mobile.svg") var(--dark-violet) top right no-repeat;
+  padding: var(--sm-1);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  width: 100%;
+}
+
+input {
+  font-size: var(--fs-400);
+  padding: var(--xs-half);
+  border-radius: 4px;
+}
+
+.btn--inline-form {
+  border-radius: 4px;
+  width: 100%;
+  margin: var(--sm-1) 0em 0em; 
+}
+
+/* Results Styling */
+
+.results-container {
+  background-color: var(--light-gray);
+}
+
+.result-container {
+  background: white;
+}
+
+.result__old-url {
+
+}
+
+.result__new-url {
+  color: var(--cyan);
+}
+
+.result__btn {
+  border-radius: 4px;
+}
+
+/* Cards */
+.card {
+  background-color: white;
+  border-radius: 4px;
+  padding: 1.5em;
+  margin: 4em 0em 0em;
+}
+
+.card__icon {
+  background-color: var(--dark-violet);
+  border-radius: 50%;
+  padding: 1em;
+  margin: 1em;
+  margin-top: -64px;
+}
+
+/* .card-divider {
+  height: 64px;
+  width: 5px;
+  background-color: var(--cyan);
+  position: relative;
+  left: 50%;
+  margin-bottom: -50px;
+} */
+
+/* Boost Section Specific Styles */ 
+.bg-boost {
+  background: url("images/bg-boost-mobile.svg") var(--dark-violet) center center no-repeat;
+  padding: 2em 4em;
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--very-dark-violet);
+  padding: 2em;
+  color: var(--grayish-violet);
+}
+
+footer p {
+  color: white;
+  margin: 2em 0 1em;
+}
+
+footer li:hover {
+  color: var(--cyan);
+}
+
+.footer__social-icons {
+  padding: 1em;
+}
+
+.footer__social-icons img {
+  margin: .5em;
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 768px) {
+  /* General Styles */
+  h1, h3, p {
+    text-align: left;
+  }
+  
+  h1 {
+    font-size: var(--fs-700);
+  }
+
+  section {
+    display: flex;
+    align-items: center;
+    padding: 2em 8em;
+  }
+
+  .content__left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .content-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Header Styles */
+  header {
+    padding: 0em 6em;
+  }
+
+  ul {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .nav__left, .ul__left, .nav__right {
+    display: flex;
+    align-items: center;
+    color: var(--grayish-violet);
+  }
+
+  .hamburger-icon {
+    display: none;
+  }
+
+  /* Hero Styles */
+  .hero-image--mobile {
+    display: none;
+  }
+
+  .hero-image--desktop {
+    display: flex;
+  }
+
+  /* Form Styles */
+  form {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4em 0em;
+    padding: 2em;
+    background: url("images/bg-shorten-desktop.svg") var(--dark-violet) top right no-repeat;
+  }
+  .btn--inline-form {
+    width: fit-content;
+    margin: 0;
+  }
+
+  input {
+    padding: .75em;
+    margin-right: .5em;
+    flex-grow: 1;
+  }
+
+  /* Cards */
+  .cards-desktop{
+    display: flex;
+    padding: 2em 0em 4em;
+    gap: 1em;
+  }
+
+  .cards-desktop .card:nth-child(3) {
+    transform: translate(0%, 10%);
+  }
+
+  .cards-desktop .card:nth-child(5) {
+    transform: translate(0%, 20%);
+  }
+
+  .bg-boost {
+    background: url("images/bg-boost-desktop.svg") var(--dark-violet) center center no-repeat;
+  }
+  
+  footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2em 8em;
+  }
+
+  footer p {
+    text-align: center;
+    margin: 0em 0em 1em;
+  }
+
+  footer ul {
+    flex-direction: column;
+  }
+
+  .footer__logo {
+    height: 33px;
+  }
+
+  .footer__social-icons {
+    padding: 0em;
+  }
+
+}
+
+
+/* To Dos / CSS Tech Debt 
+- Check to make sure variables are properly used and values are using variables wherever possible
+- Hero image does not match design
+- Background with the form input does not match design
+- Lines between cards don't work
+- Hover for social icons to teal
+*/
