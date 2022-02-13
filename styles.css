@@ -4,13 +4,14 @@
 /* Custom Properties */
 :root {
   /* Colors */
-  --cyan: hsl(180, 66%, 49%);
   --light-cyan: #9DE1E0;
-  --dark-violet: hsl(257, 27%, 26%);
+  --cyan: hsl(180, 66%, 49%);
   --red: hsl(0, 87%, 67%);
+  --white: #ffffff;
   --light-gray: #F0F1F6;
   --gray: hsl(0, 0%, 75%);
   --grayish-violet: hsl(257, 7%, 63%);
+  --dark-violet: hsl(257, 27%, 26%);
   --very-dark-blue: hsl(255, 11%, 22%);
   --very-dark-violet: hsl(260, 8%, 14%);
   
@@ -31,11 +32,20 @@
 	--fs-300: 1rem; /* 16px */
 	--fs-200: 0.875rem; /* 14px */
 
-  /* Spacing System */
-  --xs-half: .5em;
-  --sm-1: 1em;
-  --md-2: 2em;
-  --lg-4: 4em;
+  /* Spacing System - This is just to reduce the number of different spacing we have throughout the page */ 
+  --sp-0050: .5em;
+  --sp-0075: .75em;
+  --sp-0100: 1em;
+  --sp-0150: 1.5em;
+  --sp-0200: 2em;
+  --sp-0400: 4em;
+  --sp-0600: 6em;
+  --sp-0800: 8em;
+
+  /* Border Radius */
+  --br-30: 30px;
+  --br-10: 10px;
+  --br-4: 4px;
 }
 
 /* Resets */
@@ -67,10 +77,14 @@ picture {
 }
 
 .color-white {
-  color: white;
+  color: var(--white);
 }
 
 .hide-on-load {
+  display: none;
+}
+
+.hide {
   display: none;
 }
 
@@ -82,7 +96,7 @@ picture {
   text-align: center;
 }
 
-/* General Styles */
+/* Element Styles */
 body {
   font-size: var(--fs-300);
   font-family: var(--ff-normal);
@@ -97,12 +111,12 @@ button, input {
 }
 
 section {
-  padding: 4em 1.5em;
+  padding: var(--sp-0400) var(--sp-0150);
 }
 
 h1, h2, h3 {
   color: var(--very-dark-blue);
-  margin: var(--xs-half) 0em;
+  margin: var(--sp-0050) 0em;
 }
 
 h1 {
@@ -112,7 +126,7 @@ h1 {
 
 p {
   color: var(--grayish-violet);
-  margin: var(--xs-half) 0em;
+  margin: var(--sp-0050) 0em;
   max-width: 500px;
 }
 
@@ -128,27 +142,29 @@ ul {
 li {
   display: flex;
   flex-direction: column;
-  margin: .5em;
+  margin: var(--sp-0050);
 }
 
 .btn {
-  color: white;
+  color: var(--white);
   background-color: var(--cyan);
   border: none;
-  padding: .75em var(--md-2); /* add to spacing variables? */
-  margin: var(--sm-1) 0;
-  border-radius: 30px;
+  padding: var(--sp-0075) var(--sp-0200);
+  margin: var(--sp-0100) 0;
+  border-radius: var(--br-30);
   font-weight: var(--fw-bold);
   cursor: pointer;
+  transition: .5s;
 }
 
 .link-btn {
-  color: white;
+  color: var(--white);
   background-color: var(--cyan);
   border: none;
-  padding: .5em 1.5em;
-  border-radius: 30px;
+  padding: var(--sp-0050) var(--sp-0150);
+  border-radius: var(--br-30);
   cursor: pointer;
+  transition: 0.5s;
 }
 
 .btn:hover, .link-btn:hover {
@@ -160,7 +176,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: var(--md-2);
+  margin: var(--sp-0200);
 }
 
 .ul__left, .nav__right {
@@ -172,7 +188,8 @@ header {
 }
 
 .header__logo {
-  margin-right: .5em;
+  margin-right: var(--sp-0050);
+  cursor: pointer;
 }
 
 .hamburger-icon {
@@ -184,27 +201,61 @@ header {
   width: 24px;
   height: 2px;
   background-color: var(--grayish-violet);
-  margin: var(--xs-half) 0em;
+  margin: var(--sp-0050) 0em;
+}
+
+.hamburger-menu {
+  background-color: var(--dark-violet);
+  color: var(--white);
+  margin: var(--sp-0200);
+  padding: var(--sp-0200);
+  border-radius: var(--br-10);
+}
+
+.hamburger-menu li, .hamburger-menu hr {
+  margin: var(--sp-0200) 0em;
+}
+
+.hamburger-menu hr {
+  border: none;
+  height: .5px;
+  background-color: var(--light-gray);
+}
+
+.hamburger-menu li:first-child {
+  margin-top: 0;
+}
+
+.hamburger-menu li:last-child {
+  margin-bottom: 0;
 }
 
 .error {
-  border: 4px solid red;
+  border: 2px solid var(--red);
+}
+
+.error::placeholder {
+  color: var(--red);
+  font-style: italic;
 }
 
 .error-msg {
   display: block;
-  color: red;
+  color: var(--red);
+  margin: var(--sp-0050) 0em 0em;
+  font-style: italic;
+  text-align: left;
 }
 
 /* Hero Section */
 .hero {
-  margin: var(--md-2) 0em;
+  margin: var(--sp-0200) 0em 0em;
   padding: 0;
 }
 
 .hero-image--mobile {
   height: 325px;
-  margin: var(--sm-1) 0em;
+  margin: var(--sp-0100) 0em;
   width: 100%;
   object-fit: cover;
 }
@@ -216,7 +267,7 @@ header {
 /* Form Styles */
 form {
   background: url("images/bg-shorten-mobile.svg") var(--dark-violet) top right no-repeat;
-  padding: var(--sm-1);
+  padding: var(--sp-0100);
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -225,9 +276,10 @@ form {
 
 input {
   font-size: var(--fs-400);
-  padding: var(--xs-half);
-  border-radius: 4px;
+  padding: var(--sp-0050);
+  border-radius: var(--br-4);
   width: 100%;
+  border: none;
 }
 
 label {
@@ -237,14 +289,14 @@ label {
 .input__container {
   display: flex;  
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
 }
 
 .btn--inline-form {
-  border-radius: 4px;
+  border-radius: var(--br-4);
   width: 100%;
-  margin: var(--sm-1) 0em 0em; 
+  margin: var(--sp-0100) 0em 0em; 
 }
 
 /* Results Styling */
@@ -253,15 +305,15 @@ label {
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin: 1em 0em;
-  border-radius: 4px;
+  margin: var(--sp-0100) 0em;
+  border-radius: var(--br-4);
   text-align: left;
 }
 
 .result-container {
-  padding: 1em;
-  background-color: white;
-  margin-bottom: 1em;
+  padding: var(--sp-0100);
+  background-color: var(--white);
+  margin-bottom: var(--sp-0100);
 }
 
 .old-result-container {
@@ -278,7 +330,7 @@ label {
 }
 
 .result__btn {
-  border-radius: 4px;
+  border-radius: var(--br-4);
   align-self: center;
   width: 100%;
   font-size: var(--fs-300);
@@ -300,9 +352,9 @@ label {
 /* Cards */
 .card {
   background-color: white;
-  border-radius: 4px;
-  padding: 1.5em;
-  margin: 4em 0em 0em;
+  border-radius: var(--br-4);
+  padding: var(--sp-0150);
+  margin: var(--sp-0400) 0em 0em;
 }
 
 .card__icon {
@@ -325,19 +377,19 @@ label {
 /* Boost Section Specific Styles */ 
 .bg-boost {
   background: url("images/bg-boost-mobile.svg") var(--dark-violet) center center no-repeat;
-  padding: 2em 4em;
+  padding: var(--sp-0200) var(--sp-0400);
 }
 
 /* Footer Styles */
 footer {
   background-color: var(--very-dark-violet);
-  padding: 2em;
+  padding: var(--sp-0200);
   color: var(--grayish-violet);
 }
 
 footer p {
-  color: white;
-  margin: 2em 0 1em;
+  color: var(--white);
+  margin: var(--sp-0200) 0 var(--sp-0100);
 }
 
 footer li:hover {
@@ -345,11 +397,11 @@ footer li:hover {
 }
 
 .footer__social-icons {
-  padding: 1em;
+  padding: var(--sp-0100)
 }
 
 .footer__social-icons img {
-  margin: .5em;
+  margin: var(--sp-0050);
 }
 
 /* Desktop Styles */
@@ -366,7 +418,7 @@ footer li:hover {
   section {
     display: flex;
     align-items: center;
-    padding: 2em 8em;
+    padding: var(--sp-0200) var(--sp-0800);
   }
 
   .section--form {
@@ -387,7 +439,7 @@ footer li:hover {
 
   /* Header Styles */
   header {
-    padding: 0em 6em;
+    padding: 0em var(--sp-0600);
   }
 
   ul {
@@ -417,10 +469,11 @@ footer li:hover {
   /* Form Styles */
   form {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    margin: 4em 0em 2em;
-    padding: 2em;
+    margin: var(--sp-0400) 0em var(--sp-0200);
+    padding: var(--sp-0400);
+    max-height: 180px;
     background: url("images/bg-shorten-desktop.svg") var(--dark-violet) top right no-repeat;
   }
   .btn--inline-form {
@@ -429,12 +482,13 @@ footer li:hover {
   }
 
   input {
-    padding: .75em;
-    margin-right: .5em;
+    padding: var(--sp-0075);
+    margin-right: var(--sp-0050);
   }
 
   .input__container {
     flex-grow: 1;
+    margin-right: var(--sp-0100);
   }
   .result-container {
     display: flex;
@@ -443,11 +497,11 @@ footer li:hover {
     align-items: center;
   }
   .result__old-url {
-    margin: 1em;
+    margin: var(--sp-0100);
   }
 
   .result__new-url {
-    margin-right: 1em;
+    margin-right: var(--sp-0100);
   }
 
   .old-result-container, .new-result-container {
@@ -469,10 +523,10 @@ footer li:hover {
   }
 
   /* Cards */
-  .cards-desktop{
+  .cards-desktop {
     display: flex;
-    padding: 2em 0em 4em;
-    gap: 1em;
+    padding: var(--sp-0200) 0em var(--sp-0400);
+    gap: var(--sp-0100);
   }
 
   .cards-desktop .card:nth-child(3) {
@@ -492,12 +546,12 @@ footer li:hover {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 2em 8em;
+    padding: var(--sp-0200) var(--sp-0800);
   }
 
   footer p {
     text-align: center;
-    margin: 0em 0em 1em;
+    margin: 0em 0em var(--sp-0100);
   }
 
   footer ul {
@@ -516,9 +570,8 @@ footer li:hover {
 
 
 /* To Dos / CSS Tech Debt 
-- Check to make sure variables are properly used and values are using variables wherever possible
 - Hero image does not match design
-- Background with the form input does not match design
+- Background with the form input does not match design - transition from grey to white
 - Lines between cards don't work
 - Hover for social icons to teal
-*/
+- make sure url shorten cards match designs

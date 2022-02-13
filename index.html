@@ -10,7 +10,7 @@
 <body>
   <header class="header">
     <nav class="nav__left">
-    <img src="images/logo.svg" class="header__logo" alt="Shortly Logo">
+      <img src="images/logo.svg" class="header__logo" alt="Shortly Logo">
       <ul class="ul__left">
         <li><a>Features</a></li>
         <li><a>Pricing</a></li>
@@ -23,26 +23,26 @@
         <li><a class="link-btn">Signup</a></li>
       </ul>
     </nav>
-    <button class="hamburger-icon">
+    <button class="hamburger-icon" id="hamburger-icon">
         <div class="hamburger__line"></div>
         <div class="hamburger__line"></div>
         <div class="hamburger__line"></div>
     </button>
-    <div class="hamburger-menu hide-on-load">
-      <ul>
-        <li><a>Features</a></li>
-        <li><a>Pricing</a></li>
-        <li><a>Resources</a></li>
-      </ul>
-      <hr>
-      <ul>
-        <li><a>Login</a></li>
-        <li><a>Signup</a></li>
-      </ul>
-    </div>
   </header>
+  <nav class="hamburger-menu hide-on-load" id="hamburger-menu">
+    <ul>
+      <li><a>Features</a></li>
+      <li><a>Pricing</a></li>
+      <li><a>Resources</a></li>
+    </ul>
+    <hr>
+    <ul>
+      <li><a>Login</a></li>
+      <li><a class="link-btn">Signup</a></li>
+    </ul>
+  </nav>
   <section class="hero">
-    <img src="images/illustration-working.svg" class="hero-image--mobile" alt="illustration-working">
+    <img src="images/illustration-working.svg" class="hero-image--mobile" id="hero-image--mobile" alt="illustration-working">
   </section>
   <section class="section--desktop">
     <div class="content__left">
